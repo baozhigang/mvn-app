@@ -1,9 +1,9 @@
 package com.mycompany.app.mapper;
 
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Mapper;
 import com.mycompany.app.domain.Region;
 
+@Mapper
 public interface RegionMapper {
-    @Select("select * from region where id= #{id}")
-    Region selectRegion(int id);
+    Region findOneById(int id);
 }

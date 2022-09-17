@@ -25,10 +25,9 @@ public class App
 
         SqlSession session = sessionFactory.openSession();
         RegionMapper mapper = session.getMapper(RegionMapper.class);
-        // Region region = mapper.selectRegion(1);
-        // System.out.println(region.getName());
+        Region region = mapper.findOneById(1);
+        System.out.println(region);
 
-        // System.out.println(RegionMapper.class);
         System.out.println( "Hello World!" );
     }
 }
