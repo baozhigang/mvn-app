@@ -26,7 +26,7 @@ public class App
         SqlSession session = sessionFactory.openSession();
         RegionMapper mapper = session.getMapper(RegionMapper.class);
         Region region = mapper.findOneById(1);
-        System.out.println(region);
+        System.out.println(region.getName());
 
         System.out.println( "Hello World!" );
     }
