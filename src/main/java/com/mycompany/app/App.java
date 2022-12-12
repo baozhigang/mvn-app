@@ -8,8 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.mycompany.app.mapper.RegionMapper;
-import com.mycompany.app.domain.Region;
+import com.mycompany.app.mapper.HelloMapper;
+import com.mycompany.app.domain.Hello;
 
 /**
  * Hello world!
@@ -24,8 +24,8 @@ public class App
         SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
         SqlSession session = sessionFactory.openSession();
-        RegionMapper mapper = session.getMapper(RegionMapper.class);
-        Region region = mapper.findOneById(1);
+        HelloMapper mapper = session.getMapper(HelloMapper.class);
+        Hello region = mapper.findOneById(1);
         System.out.println(region.getName());
 
         System.out.println( "Hello World!" );
