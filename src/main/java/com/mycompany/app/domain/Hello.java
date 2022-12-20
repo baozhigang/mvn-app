@@ -37,4 +37,8 @@ public class Hello {
     public String getRealName() {
         return this.realName;
     }
+
+    public String toString() {
+        return "id: "+ this.getId() +" name: "+ this.getName() + " real_name: "+ this.getRealName() + " nick_name: " + this.getNickName();
+    }
 }

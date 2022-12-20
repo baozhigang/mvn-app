@@ -3,7 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mycompany.app.mapper.HelloMapper">
-    <select id="findOneById" resultType="com.mycompany.app.domain.Hello">
-        select id, name, realName, nickName from hello where id = #{id}
+    <resultMap id="helloResultMap" type="com.mycompany.app.domain.Hello">
+        <id property="id" column="id" />
+        <result property="realName" column="real_name"/>
+        <result property="nickName" column="nick_name"/>
+    </resultMap>
+    <select id="findOneById" resultMap="helloResultMap">
+        select id, name, real_name, nick_name from hello where id = #{id}
     </select>
 </mapper>
