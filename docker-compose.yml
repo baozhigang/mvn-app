@@ -1,0 +1,28 @@
+version: '3.0'
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - LANG=C.UTF-8
+    volumes:
+      - ./_docker/mysql/initdb.d:/docker-entrypoint-initdb.d
+      - ./_docker/mysql/zz-zz.cnf:/etc/mysql/conf.d/zz-zz.cnf
+      - mysql_data:/var/lib/mysql
+  jdk:
+    # image: modicn/openjdk:11-pilot
+    build:
+      context: ./_docker/jdk
+      args:
+        X_UID: ${X_UID:-1000}
+        X_GID: ${X_GID:-1000}
+    working_dir: /work
+    volumes:
+      - ./:/work
+      - ./_home:/home/pilot
+    ports:
+      - 5005:5005
+    command: mvn exec:java -Dexec.mainClass=com.mycompany.app.App
+volumes:
+  mysql_data:
+    driver: local

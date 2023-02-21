@@ -1,16 +1,14 @@
-# maven + mybatis
+# maven + spring-boot
 
-## 构建环境
+## 数据库初始化：
 
-    docker pull modicn/openjdk:8-bullseye
-    docker build ./openjdk -t bao/openjdk
+    docker compose up -d mysql
+    docker compose exec -T mysql mysql -u app_user -papp_pass app < table.sql
 
-## 进入容器
+## 开发环境编译项目：
 
-    ./run-container.sh
+    docker compose run --rm jdk mvn clean compile
 
-## 执行命令
+## 开发环境运行项目：
 
-    mvn package
-
-    java -cp /home/pilot/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar:/home/pilot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/pilot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/pilot/.m2/repository/org/mybatis/mybatis/3.5.10/mybatis-3.5.10.jar:target/mvn-app-1.0-SNAPSHOT.jar  com.mycompany.app.App
+    docker compose up -d jdk

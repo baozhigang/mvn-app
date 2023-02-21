@@ -1,16 +1,14 @@
 package com.mycompany.app.domain;
 
 public class Hello {
-    private int id;
+    private Long id;
     private String name;
-    private String nickName;
-    private String realName;
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
 
@@ -22,23 +20,7 @@ public class Hello {
         return this.name;
     }
 
-    public void setNickName(String nickName) {
-        this.nickName = nickName;
-    }
-
-    public String getNickName() {
-        return this.nickName;
-    }
-
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
-
-    public String getRealName() {
-        return this.realName;
-    }
-
     public String toString() {
-        return "id: "+ this.getId() +" name: "+ this.getName() + " real_name: "+ this.getRealName() + " nick_name: " + this.getNickName();
+        return "id: "+ this.getId() +" name: "+ this.getName();
     }
 }

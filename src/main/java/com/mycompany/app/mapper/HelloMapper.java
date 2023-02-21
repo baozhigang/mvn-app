@@ -5,5 +5,5 @@ import com.mycompany.app.domain.Hello;
 
 @Mapper
 public interface HelloMapper {
-    Hello findOneById(int id);
+    Hello findOneById(Long id);
 }

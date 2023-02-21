@@ -5,10 +5,8 @@
 <mapper namespace="com.mycompany.app.mapper.HelloMapper">
     <resultMap id="helloResultMap" type="com.mycompany.app.domain.Hello">
         <id property="id" column="id" />
-        <result property="realName" column="real_name"/>
-        <result property="nickName" column="nick_name"/>
     </resultMap>
     <select id="findOneById" resultMap="helloResultMap">
-        select id, name, real_name, nick_name from hello where id = #{id}
+        select id, name from hello where id = #{id}
     </select>
 </mapper>
